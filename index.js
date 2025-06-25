@@ -3,6 +3,7 @@ const cors = require("cors");
 const connectDB = require("./db");
 const authRoutes = require("./routes/auth");
 const loginRoutes = require('./routes/login');
+const enquiryRoutes=require('./routes/enquiry');
 
 const app = express();
 
@@ -15,7 +16,8 @@ connectDB();
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/login", loginRoutes); // ✅ This is correct
+app.use("/api/login", loginRoutes);
+app.use('/api/enquiry',enquiryRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
